@@ -13,3 +13,7 @@ ps -eo rss,pid,user,command | sort -rn | head -15 | awk '{ hr[1024**2]="GB"; hr[
  } } { printf ("%-6s %-10s ", $2, $3) }
  { for ( x=4 ; x<=NF ; x++ ) { printf ("%s ",$x) } print ("\n") }
  '
+echo "# Commands Below are useful too #"
+echo "# ps -e --format=pid,rss,args | sort --numeric-sort --key=2 > debug1.txt #"
+echo "# ps aux  | awk '{print $6/1024  " MB\t\t" $2 "\t" $11}'  | sort -n > debug2.txt #"
+echo "# ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head -10 > debug3.txt #"
